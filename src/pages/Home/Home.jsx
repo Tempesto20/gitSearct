@@ -3,16 +3,20 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPerson } from '../../redux/slices/personSlice';
 import PersonBlock from '../../components/PersonBlock/PersonBlock';
+import styles from './home.module.scss';
+import Skeleton from '../../components/PersonBlock/Skeleton';
 
 function Home() {
   const dispatch = useDispatch();
 
   const person = useSelector((state) => state.personSlice.items);
+  const status = useSelector((state) => state.personSlice.status);
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
-  // console.log(person);
+
+  console.log(person);
   // const data = person.items;
   // console.log(data);
-  
+
   const getCats = async () => {
     const search = searchValue;
     dispatch(
@@ -28,16 +32,25 @@ function Home() {
 
   // const personArray = person.map((item) => <PersonBlock key={item.id} {...item} />);
 
+  const personArray = person.map((item) => <PersonBlock key={item.id} {...item} />);
+
+  const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+
   return (
-    <div className="container">
-      <div className="content__top">Все контакты</div>
-      <div className="content__title">
-        {person.map((item) => 
-          <PersonBlock key={item.id} {...item} />
-        )}
-        {/* <PersonBlock /> */}
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+      <div className={styles.title}>В данном разделе представлены подходящие аккаунты по запросу</div>
+        <div className={styles.container}>
+          
+          <div className={styles.content}>
+            {/* {person.map((item) => (
+              <PersonBlock key={item.id} {...item} />
+            ))} */}
+            {status !== 'success' ? skeletons : personArray}
+          </div>
+          <div className="content__items"></div>
+        </div>
       </div>
-      <div className="content__items"></div>
     </div>
   );
 }

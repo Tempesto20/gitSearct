@@ -1,0 +1,37 @@
+.background{
+background-color: rgb(77, 75, 75);
+}
+.wrapper{
+    position: relative;
+    max-width: 1280px;
+}
+.container{
+    padding: 20px 20px;
+    display: flex;
+}
+.logo{
+    position: relative;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+}
+.img{
+
+    width: 160px;
+}
+
+.content{
+    position: relative;
+    display: block;
+    padding-top: 20px;
+    padding-left: 100px;
+}
+.title{
+color: white;
+font-weight: bold;
+font-size: 24px;
+}
+.search{
+    padding-top: 50px;
+}

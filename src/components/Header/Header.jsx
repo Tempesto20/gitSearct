@@ -1,28 +1,34 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
-import Search from "../Search/Search";
-
+import Search from '../Search/Search';
+import git from '../../assets/svg/gita.svg';
+import styles from './header.module.scss';
 
 function Header() {
   const location = useLocation();
 
-
   return (
-    <div className="">
-        <div className="">Это хедр, чё нить запили</div>
-        <div className="">
-            <div className=""></div>
-            <div className="">
-            {location.pathname === '/' &&<Search />}
-            </div>
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+        <Link to="/" >
+          <div className={styles.logo}>
+            <img src={git} alt="" className={styles.img} />
+          </div>
+          </Link>
+          <div className={styles.content}>
+            <div className={styles.title}>Платформа для поиска друзей в Github</div>
+            <div className={styles.search}>{location.pathname === '/' && <Search />}</div>
+          </div>
         </div>
+      </div>
     </div>
-    );
+  );
 }
 
 export default Header;
-
 
 /*
     // const [catLength, setCatLength] = React.useState([]);

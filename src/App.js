@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Bottom from './components/Bottom/Bottom';
+// import Bottom from './components/Bottom/Bottom';
 import Header from './components/Header/Header';
 import Commits from './components/Repositories/Commits/Commits';
 import FullPerson from './pages/FullPerson/FullPerson';
@@ -17,7 +17,7 @@ function App() {
           <Route path="/commits/:id" element={<Commits />} />
         </Routes>
       </div>
-      <Bottom />
+      {/* <Bottom /> */}
     </div>
   );
 }

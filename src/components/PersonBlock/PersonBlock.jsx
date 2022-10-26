@@ -1,39 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Repositories from '../Repositories/Repositories';
+import styles from './personBlock.module.scss';
 
-function PersonBlock({
-    id,
-  repos_url,
-  login,
-  avatar_url,
-  html_url,
-}) {
-
-// console.log(repos_url);
-// const repositories = repos_url;
-// console.log(repositories);
+function PersonBlock({ id, repos_url, login, avatar_url, html_url }) {
+  // console.log(repos_url);
+  // const repositories = repos_url;
+  // console.log(repositories);
   return (
-    <div className="">
-      <div className="">
-        <div className="">
-          <div className="">
-            <img src={avatar_url} alt="" />
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.avatar}>
+          <Link to={`/person/${id}`} key={id} >
+            <img src={avatar_url} alt="" className={styles.img} />
+            </Link>
           </div>
-          <div className="">{login}</div>
-          <div className="">
+          <div className={styles.title}>
+            <div className={styles.login}>{login}</div>
           </div>
           {/* <a href={html_url} target="_blanc" className="">Сылка на страницу</a> */}
+
+          <Link to={`/person/${id}`} key={id} className={styles.link}>
+            <div className={styles.subtitle}>Перейти на страницу</div>
+          </Link>
         </div>
-        <Link to={`/person/${id}`} key={id} className="">Перейти на страницу</Link>
       </div>
     </div>
   );
 }
 
 export default PersonBlock;
-
-
 
 // avatar_url: 'https://avatars.githubusercontent.com/u/84270841?v=4';
 // events_url: 'https://api.github.com/users/Tempesto20/events{/privacy}';

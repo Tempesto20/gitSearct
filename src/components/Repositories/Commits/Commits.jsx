@@ -43,7 +43,7 @@ function Commits({ login }) {
     <div className="">
       <div className="">
         <div className="">Данные </div>
-        {/* {rep.map((item, index) => {
+        {rep.map((item, index) => {
           return (
             <div
               className=""
@@ -55,7 +55,7 @@ function Commits({ login }) {
               <div className="">{item.commit.message}</div>
             </div>
           );
-        })} */}
+        })}
 
         <div className="">
           <Link to="/" className="">

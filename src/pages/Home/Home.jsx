@@ -2,19 +2,22 @@ import React from 'react';
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPerson } from '../../redux/slices/personSlice';
-
-
+import PersonBlock from '../../components/PersonBlock/PersonBlock';
 
 function Home() {
   const dispatch = useDispatch();
 
+  const person = useSelector((state) => state.personSlice.items);
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
-console.log(searchValue);
+  // console.log(person);
+  // const data = person.items;
+  // console.log(data);
+  
   const getCats = async () => {
-   const search = searchValue; 
+    const search = searchValue;
     dispatch(
       fetchPerson({
-        search
+        search,
       }),
     );
   };
@@ -23,12 +26,17 @@ console.log(searchValue);
     getCats();
   }, [searchValue]);
 
+  // const personArray = person.map((item) => <PersonBlock key={item.id} {...item} />);
+
   return (
     <div className="container">
-      <div className="content__top">
-      {/* {person} */}
+      <div className="content__top">Все контакты</div>
+      <div className="content__title">
+        {person.map((item) => 
+          <PersonBlock key={item.id} {...item} />
+        )}
+        {/* <PersonBlock /> */}
       </div>
-      <h2 className="content__title">Все контакты</h2>
       <div className="content__items"></div>
     </div>
   );

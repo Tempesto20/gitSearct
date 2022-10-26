@@ -28,6 +28,8 @@ const Search=()=> {
 
   const updateSearchValue = React.useCallback(
     debounce((str) => {
+      console.log(str)
+      // filter(str => str.trim())
       dispatch(setSearchValue(str));
     }, 500),
     [],
@@ -35,6 +37,7 @@ const Search=()=> {
 
   const inputHandler = (event) => {
     //dispatch(setSearchValue(event.target.value));
+    // filter(value => value.trim());
     setValue(event.target.value);
     updateSearchValue(event.target.value);
   };

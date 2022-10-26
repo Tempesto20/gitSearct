@@ -10,6 +10,7 @@ const filterSlice = createSlice({
   reducers: {
     setSearchValue(state, action) {
       //console.log(action);
+      // state.searchValue.filter((object) => object.trim());
       state.searchValue = action.payload;
     },
   },

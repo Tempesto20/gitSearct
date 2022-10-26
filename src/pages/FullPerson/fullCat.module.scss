@@ -1,0 +1,115 @@
+@import '../../scss/config';
+
+.background {
+  background: #e5e5e5;
+}
+.wrapper {
+  max-width: 1280px;
+  padding-top: 0px;
+  margin: 0 auto;
+}
+.preview {
+  margin: 0 auto;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 50px;
+}
+.container {
+  display: flex;
+  padding-top: 100px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  @media (max-width: $lg) {
+    padding-top: 20px;
+    display: block;
+  }
+}
+
+.img {
+  max-width: 1000px;
+  height: 100%;
+  @media (max-width: $xl) {
+    max-width: 600px;
+  }
+  @media (max-width: $lg) {
+    max-width: 500px;
+  }
+  @media (max-width: $sm) {
+    max-width: 400px;
+  }
+  @media (max-width: $ssm) {
+    max-width: 260px;
+  }
+}
+.title {
+  padding-left: 30px;
+  padding-right: 20px;
+  @media (max-width: $lg) {
+    padding-left: 0px;
+  }
+}
+.name {
+  font-size: 22px;
+  font-weight: bold;
+  @media (max-width: $lg) {
+    padding-top: 10px;
+  }
+}
+.breed {
+  font-size: 22px;
+  font-weight: normal;
+  padding-top: 20px;
+  @media (max-width: $xl) {
+    padding-top: 10px;
+  }
+  @media (max-width: $lg) {
+    padding-top: 20px;
+  }
+}
+.description {
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 20px;
+  @media (max-width: $xl) {
+    font-size: 16px;
+    padding-top: 0px;
+  }
+  @media (max-width: $lg) {
+    font-size: 20px;
+    padding-top: 20px;
+  }
+}
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  padding-top: 40px;
+  @media (max-width: $xl) {
+    padding-top: 10px;
+  }
+  @media (max-width: $lg) {
+    padding-top: 40px;
+  }
+}
+
+.buttonBottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+  @media (max-width: $lg) {
+    display: block;
+    padding-top: 0px;
+  }
+}
+
+.imgBottom {
+  max-width: 40px;
+}
+
+.buttonSubtitle {
+  text-align: center;
+  padding-top: 20px;
+  padding-left: 10px;
+}

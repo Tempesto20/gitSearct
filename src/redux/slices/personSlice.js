@@ -6,9 +6,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchPerson = createAsyncThunk('person/fetchPersonStatus', async (params) => {
   const { search } = params;
   const { data } = await axios.get(`https://api.github.com/search/users?q=` + search);
-
-  console.log(data);
-  return data;
+  // console.log(data);
+  // console.log(data.items);
+  // return data;
+  return data.items;
 });
 
 // первоначальное состояние

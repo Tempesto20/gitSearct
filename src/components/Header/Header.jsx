@@ -1,10 +1,11 @@
 import React from "react";
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 import Search from "../Search/Search";
 
 
 function Header() {
-
+  const location = useLocation();
 
 
   return (
@@ -13,7 +14,7 @@ function Header() {
         <div className="">
             <div className=""></div>
             <div className="">
-                <Search />
+            {location.pathname === '/' &&<Search />}
             </div>
         </div>
     </div>

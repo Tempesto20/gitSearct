@@ -3,6 +3,10 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
+// import { fetchCommit } from '../../redux/slices/commitSlice';
+// import Commits from './Commits/Commits';
+
+
 
 function Repositories({ repos_url, login }) {
 
@@ -12,20 +16,19 @@ function Repositories({ repos_url, login }) {
 
   //const params = useParams();
   //console.log(params);
-
   const repositories = useSelector((state) => state.repositoriesSlice.items);
   const status = useSelector((state) => state.repositoriesSlice.status);
-//   console.log(repositories);
+  // console.log(repositories);
 //   console.log(status);
 
   const getCats = async () => {
     dispatch(fetchRepositories({ login }));
+    // dispatch(fetchCommit({ login }));
   };
 
   React.useEffect(() => {
     getCats();
   }, [login]);
-
 
 
 
@@ -53,6 +56,11 @@ function Repositories({ repos_url, login }) {
             </div>
           );
         })}
+        <div className="">
+        {/* {
+          repositories.map((item)=><Commits  key={item.id} {...item} />)
+ } */}
+        </div>
       </div>
     </div>
   );

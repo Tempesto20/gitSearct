@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import Search from '../Search/Search';
-import git from '../../assets/svg/gita.svg';
+// import git from '../../assets/svg/gita.svg';
+import git from '../../assets/img/git.png';
 import styles from './header.module.scss';
 
 function Header() {

@@ -1,5 +1,5 @@
 .background{
-background-color: rgb(77, 75, 75);
+background-color: #24292f;
 }
 .wrapper{
     position: relative;
@@ -16,11 +16,17 @@ background-color: rgb(77, 75, 75);
     padding-bottom: 20px;
     padding-left: 100px;
 }
+.logo:hover{
+
+}
 .img{
 
     width: 160px;
 }
-
+.img:hover{
+    opacity: 0.65;
+    // width: 162px;
+}
 .content{
     position: relative;
     display: block;

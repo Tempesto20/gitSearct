@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { fetchPerson } from '../../redux/slices/personSlice';
-import styles from './fullCat.module.scss';
+import styles from './fullPerson.module.scss';
 import Repositories from '../../components/Repositories/Repositories';
 
 // Детальный данный по котику по id
@@ -23,36 +23,37 @@ const FullCat = () => {
   // console.log(person);
   // console.log(status);
 
-// const repositories = person.repos_url;
-// console.log("person" + " " + person)
-// console.log("repositories" + " " + repositories)
+  // const repositories = person.repos_url;
+  // console.log("person" + " " + person)
+  // console.log("repositories" + " " + repositories)
   return (
-    <div className="">
-      <div className="">
-        <div className="">Full</div>
-        {
-          person.map((item,index)=>{
-            return(
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.preview}>Данные пользователя</div>
+          <div className={styles.content}>
+          {person.map((item, index) => {
+            return (
               <div className="" key={item.id}>
-              <div className="">
-                <img src={item.avatar_url} alt="" />
+                <div className="">
+                  <img src={item.avatar_url} alt="" className={styles.img}/>
+                </div>
+                <div className={styles.login}>{item.login}</div>
               </div>
-              <div className="">{item.login}</div>
-              <div className="">
-
-              </div>
-            </div>
             );
-          })
-        }
-<div className="">
-{
-          person.map((item)=><Repositories  key={item.id} {...item} />)
- }
-</div>
-      </div>
-      <div className="">
-      <Link to='/' className="">Вернуться на главную</Link>
+          })}
+          <div className="">
+            {person.map((item) => (
+              <Repositories key={item.id} {...item} />
+            ))}
+          </div>
+        </div>
+        </div>
+        <div className="">
+          <Link to="/" className={styles.link}>
+          <div className={styles.subtitle}>Вернуться на главную</div>
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -60,32 +61,27 @@ const FullCat = () => {
 
 export default FullCat;
 
+// React.useEffect(() => {
+//   // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
+//   axios
+//     .get(
+//       `https://api.github.com/search/users?q=`+ searchValue
+//     )
+//     .then((response) => {
+//        console.log(response.data);
+//       //  setPerson(response.data);
+//     });
 
+//   window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
+// }, [  searchValue ]);
 
+//   const getCats = async () => {
+//   dispatch(fetchPerson());
+// };
 
-
-
-  // React.useEffect(() => {
-  //   // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
-  //   axios
-  //     .get(
-  //       `https://api.github.com/search/users?q=`+ searchValue
-  //     )
-  //     .then((response) => {
-  //        console.log(response.data);
-  //       //  setPerson(response.data);
-  //     });
-
-  //   window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
-  // }, [  searchValue ]);
-
-  //   const getCats = async () => {
-  //   dispatch(fetchPerson());
-  // };
-
-  // React.useEffect(() => {
-  //   getCats();
-  // }, [id]);
+// React.useEffect(() => {
+//   getCats();
+// }, [id]);
 
 // const getCats = async () => {
 //   dispatch(fetchPerson({ id }));

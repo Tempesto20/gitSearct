@@ -5,13 +5,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
 // import { fetchCommit } from '../../redux/slices/commitSlice';
 // import Commits from './Commits/Commits';
-
-
+import styles from './repositories.module.scss';
 
 function Repositories({ repos_url, login }) {
-
   const dispatch = useDispatch();
-//   const { id } = useParams();
+  //   const { id } = useParams();
   // const navigate = useNavigate();
 
   //const params = useParams();
@@ -19,7 +17,7 @@ function Repositories({ repos_url, login }) {
   const repositories = useSelector((state) => state.repositoriesSlice.items);
   const status = useSelector((state) => state.repositoriesSlice.status);
   // console.log(repositories);
-//   console.log(status);
+  //   console.log(status);
 
   const getCats = async () => {
     dispatch(fetchRepositories({ login }));
@@ -30,36 +28,34 @@ function Repositories({ repos_url, login }) {
     getCats();
   }, [login]);
 
-
-
-
-
   return (
-    <div className="">
-      <div className="">Repositories</div>
-      <div className="">
-        {repositories.map((item) => {
-          return (
-            <div className="" key={item.id}>
-                <Link  to={`/commits/${item.id}`} key={item.id} className="">
-                    <div className="">{item.name}</div>
-                </Link>
-              {/* <div className="">{item.full_name}</div> */}
-              {/* <div className="">{item.comments_url}</div>*/}
-              {/* <div className="">{item.commits_url}</div>  */}
-              {/* <div className="">{item.created_at}</div> */}
-              <div className="">{item.language}</div>
-              <div className="">{item.stargazers_count}</div>
-              {/* <div className="">{item.pushed_at}</div> */}
-              {/* <div className="">{item.size}</div> */}
-              <div className="">{item.visibility}</div>
-            </div>
-          );
-        })}
-        <div className="">
-        {/* {
+    <div className={styles.background}>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.preview}>Repositories</div>
+          <div className={styles.content}>
+            {repositories.map((item) => {
+              return (
+                <div className={styles.border} key={item.id}>
+                  <div className={styles.title}>
+                    <Link to={`/commits/${item.id}`} key={item.id} className="">
+                      <div className={styles.name}>{item.name}</div>
+                    </Link>
+                    <div className={styles.visibility}>{item.visibility}</div>
+                  </div>
+                  <div className={styles.subtitle}>
+                    <div className={styles.language}>{item.language}</div>
+                    <div className={styles.stargazers_count}>{item.stargazers_count}</div>
+                  </div>
+                </div>
+              );
+            })}
+            <div className="">
+              {/* {
           repositories.map((item)=><Commits  key={item.id} {...item} />)
  } */}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -67,7 +63,6 @@ function Repositories({ repos_url, login }) {
 }
 
 export default Repositories;
-
 
 //   const [rep, setRep] = React.useState([]);
 
@@ -80,3 +75,23 @@ export default Repositories;
 
 //     window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
 //   }, [login]);
+
+{
+  /* <div className="">{item.full_name}</div> */
+}
+{
+  /* <div className="">{item.comments_url}</div>*/
+}
+{
+  /* <div className="">{item.commits_url}</div>  */
+}
+{
+  /* <div className="">{item.created_at}</div> */
+}
+
+{
+  /* <div className="">{item.pushed_at}</div> */
+}
+{
+  /* <div className="">{item.size}</div> */
+}

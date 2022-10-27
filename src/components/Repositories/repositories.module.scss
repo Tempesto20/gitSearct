@@ -1,0 +1,118 @@
+@import '../../scss/config';
+
+.background {
+}
+.wrapper {
+  max-width: 800px;
+  padding-top: 0px;
+  // margin: 0 auto;
+}
+.preview {
+  // margin: 0 auto;
+  font-size: 16px;
+  font-weight: bold;
+  // text-align: center;
+  padding-bottom: 20px;
+}
+.container {
+  padding-left: 20px;
+}
+.content{
+  // display: flex;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  @media (max-width: $xl) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  @media (max-width: $lg) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+  }
+}
+
+.border{
+  border: 1px solid #000000;
+  border-radius: 6px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  // width: 300px;
+}
+.title{
+  display: flex;
+  padding-top: 10px;
+}
+.subtitle{
+  display: flex;
+  padding-bottom: 10px;
+}
+.name{
+  font-size: 14px;
+  font-weight: 600;
+  color: #0969DA;
+  padding-left: 20px;
+}
+.visibility{
+  padding: 0 7px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 2em;
+  border-color: rgb(183, 183, 183);
+  margin-left: 20px;
+}
+
+.language{  
+  font-size: 12px;
+  color: #57606A;
+  padding-left: 20px;
+}
+.stargazers_count{
+  padding-left: 20px;
+}
+
+
+.login {
+  font-size: 20px;
+  font-weight: bold;
+  @media (max-width: $lg) {
+    padding-top: 10px;
+  }
+}
+
+.link{
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  padding: 10px;
+  background-color: rgb(180, 196, 196);
+  max-width: 230px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  @media (max-width: $lg) {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  @media (max-width: $ssm) {
+    margin-left: 0px;
+  }
+
+}
+
+.link:hover,
+.link:active {
+background-color: rgb(152, 175, 175);
+}
+// .subtitle{
+// text-align: center;
+// padding-left: 20px;
+// color: white;
+// font-size: 16px;
+// font-weight: bold;
+// }

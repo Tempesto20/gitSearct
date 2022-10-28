@@ -9,7 +9,12 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     setSearchValue(state, action) {
-      //console.log(action);
+      // const findItem = state.searchValue.find((value) => value.trim());
+      // if (findItem) {
+      // } else {
+      //   state.searchValue = action.payload;
+      // }
+
       // state.searchValue.filter((object) => object.trim());
       state.searchValue = action.payload;
     },

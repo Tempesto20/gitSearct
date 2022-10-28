@@ -1,0 +1,104 @@
+@import '../../../scss/config';
+
+.background {
+  background-color: white;
+}
+.wrapper {
+  max-width: 1280px;
+  padding-top: 0px;
+  margin: 0 auto;
+}
+.preview {
+  margin: 0 auto;
+  font-size: 24px;
+  font-weight: bold;
+  // text-align: center;
+  padding-bottom: 40px;
+}
+.container {
+  padding-top: 40px;
+}
+.content {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+}
+.border {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 800px;
+}
+.title {
+  padding: 20px 20px;
+}
+.name {
+  display: flex;
+  font-size: 14px;
+  p{
+    font-weight: bold;
+    padding-right: 10px;
+  }
+}
+
+.message {
+  display: flex;
+  font-size: 14px;
+  padding-top: 10px;
+  p{
+    font-weight: bold;
+    padding-right: 10px;
+  }
+}
+.date {
+  display: flex;
+  font-size: 14px;
+  padding-top: 10px;
+  p{
+    font-weight: bold;
+    padding-right: 10px;
+  }
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.link {
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+  padding: 10px;
+  background-color: rgb(180, 196, 196);
+  max-width: 230px;
+  margin-top: 40px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  @media (max-width: $lg) {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  @media (max-width: $ssm) {
+    margin-left: 0px;
+  }
+}
+
+.link:hover,
+.link:active {
+  background-color: rgb(152, 175, 175);
+}
+.subtitle {
+  text-align: center;
+  padding-left: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+}

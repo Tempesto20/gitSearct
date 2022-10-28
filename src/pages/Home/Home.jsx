@@ -11,7 +11,7 @@ function Home() {
 
   const person = useSelector((state) => state.personSlice.items);
   const status = useSelector((state) => state.personSlice.status);
-  const searchValue = useSelector((state) => state.filterSlice.searchValue);
+  const searchValue = useSelector((state) => state.filterSlice.searchValue).trim();
 
   console.log(person);
   // const data = person.items;

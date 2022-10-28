@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
 // import { fetchCommit } from '../../redux/slices/commitSlice';
 // import Commits from './Commits/Commits';
+import star from '../../assets/img/starTests.png';
 import styles from './repositories.module.scss';
+import './rep.scss';
 
 function Repositories({ repos_url, login }) {
   const dispatch = useDispatch();
@@ -35,6 +37,7 @@ function Repositories({ repos_url, login }) {
           <div className={styles.preview}>Repositories</div>
           <div className={styles.content}>
             {repositories.map((item) => {
+              const ponitLangoage = item.language.toString();
               return (
                 <div className={styles.border} key={item.id}>
                   <div className={styles.title}>
@@ -44,7 +47,11 @@ function Repositories({ repos_url, login }) {
                     <div className={styles.visibility}>{item.visibility}</div>
                   </div>
                   <div className={styles.subtitle}>
+                    <div className={styles.point}>
+                      <div className={`styles  ${ponitLangoage}`}>.</div>
+                    </div>
                     <div className={styles.language}>{item.language}</div>
+                    <img src={star} alt="" className={styles.star} />
                     <div className={styles.stargazers_count}>{item.stargazers_count}</div>
                   </div>
                 </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
 // import { fetchCommit } from '../../redux/slices/commitSlice';
-// import Commits from './Commits/Commits';
+import Commits from './Commits/Commits';
 import book from '../../assets/img/book.png';
 import star from '../../assets/img/starTests.png';
 import styles from './repositories.module.scss';
@@ -66,12 +66,12 @@ function Repositories({ repos_url, login }) {
                 </div>
               );
             })}
-            <div className="">
-              {/* {
-          repositories.map((item)=><Commits  key={item.id} {...item} />)
- } */}
-            </div>
           </div>
+          {/* <div className="">
+              {
+          repositories.map((item)=><Commits  key={item.id} {...item} />)
+ }
+            </div> */}
         </div>
       </div>
     </div>

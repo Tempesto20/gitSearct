@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 // import { fetchCommit } from '../../../redux/slices/commitSlice';
 
-function Commits({ login }) {
+function Commits({ login, name }) {
   //commits_url : "https://api.github.com/repos/Tempesto20/gitSearct/commits{/sha}"
   // "commits_url": "https://api.github.com/repos/Tempesto20/Cat/commits{/sha}",
   // "git_commits_url": "https://api.github.com/repos/Tempesto20/Cat/git/commits{/sha}",
@@ -18,21 +18,21 @@ function Commits({ login }) {
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
   // const rep = repositories;
 
-  //   console.log(commits);
+    // console.log(name);
 
 
   React.useEffect(() => {
     // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
     axios
       .get(
-        // `https://api.github.com/users/${login}/repos`
+        // `https://api.github.com/repos/${login}/${name}/commits`,
         `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
         // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
         // `https://api.github.com/repos/${login}/${name}/commits`
         // `${commit}`
       )
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setRep(response.data);
       });
 

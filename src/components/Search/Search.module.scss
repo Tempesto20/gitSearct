@@ -33,8 +33,9 @@
     height: 18px;
     opacity: 0.3;
     position: absolute;
-    right: 15px;
-    top: 15px;
+    // right: 0px;
+    left: 270px;
+    top: 14px;
     cursor: pointer;//изменение вида курсора
 
     &:hover{

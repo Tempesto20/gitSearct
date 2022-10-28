@@ -1,5 +1,6 @@
 @import '../../scss/config';
 
+
 .background {
 }
 .wrapper {
@@ -46,14 +47,19 @@
 }
 .subtitle {
   display: flex;
-  padding-top: 14px;
-  padding-bottom: 16px;
+  padding-top: 12px;
+  padding-bottom: 20px;
+}
+.book{
+  width: 14px;
+  height: 100%;
+  margin-left: 10px;
 }
 .name {
   font-size: 14px;
   font-weight: 600;
   color: #0969da;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .visibility {
   padding: 0 7px;
@@ -67,31 +73,26 @@
   margin-left: 10px;
 }
 
-
 .language {
   font-size: 12px;
   color: #57606a;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.countStar {
+  display: flex;
   padding-left: 20px;
   padding-top: 4px;
 }
-.star{
-  max-width: 16px;
+.star {
+  width: 12px;
   height: 100%;
-  margin-top: 4px;
-  margin-left: 10px;
 }
 
 .stargazers_count {
-  padding-left: 4px;
+  margin-left: 4px;
 }
 
-.login {
-  font-size: 20px;
-  font-weight: bold;
-  @media (max-width: $lg) {
-    padding-top: 10px;
-  }
-}
 
 .link {
   display: flex;
@@ -118,43 +119,9 @@
   background-color: rgb(152, 175, 175);
 }
 
-
-
-.point{
+.point {
+  position: relative;
   padding-left: 10px;
-  font-size: 18px;
-  line-height: 18px;
-  position: relative;
-  
-}
-
-.SCSS {
-  font-size: 18px;
-  line-height: 18px;
-  position: relative;
-  background-color: red;
-  color: red;
-  background: url(../../assets/img/git.png);
-  max-width: 40px;
-}
-.HTML {
-  font-size: 18px;
-  line-height: 18px;
-  position: relative;
-  background-color: red;
-  color: red;
-}
-.JavaScript {
-  font-size: 18px;
-  line-height: 18px;
-  position: relative;
-  background-color: red;
-  color: red;
-}
-.TypeScript {
-  font-size: 18px;
-  line-height: 18px;
-  position: relative;
-  background-color: red;
-  color: red;
+  font-size: 0px;
+  line-height: 0px;
 }

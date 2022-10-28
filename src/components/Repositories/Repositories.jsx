@@ -5,9 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
 // import { fetchCommit } from '../../redux/slices/commitSlice';
 // import Commits from './Commits/Commits';
+import book from '../../assets/img/book.png';
 import star from '../../assets/img/starTests.png';
 import styles from './repositories.module.scss';
-import './rep.scss';
+import './colorLanguage.scss';
 
 function Repositories({ repos_url, login }) {
   const dispatch = useDispatch();
@@ -38,9 +39,11 @@ function Repositories({ repos_url, login }) {
           <div className={styles.content}>
             {repositories.map((item) => {
               const ponitLangoage = item.language.toString();
+              const count = item.stargazers_count;
               return (
                 <div className={styles.border} key={item.id}>
                   <div className={styles.title}>
+                    <img src={book} alt="" className={styles.book} />
                     <Link to={`/commits/${item.id}`} key={item.id} className="">
                       <div className={styles.name}>{item.name}</div>
                     </Link>
@@ -51,8 +54,14 @@ function Repositories({ repos_url, login }) {
                       <div className={`styles  ${ponitLangoage}`}>.</div>
                     </div>
                     <div className={styles.language}>{item.language}</div>
-                    <img src={star} alt="" className={styles.star} />
-                    <div className={styles.stargazers_count}>{item.stargazers_count}</div>
+                    {count !== 0 ? (
+                      <div className={styles.countStar}>
+                        <img src={star} alt="" className={styles.star} />
+                        <div className={styles.stargazers_count}>{item.stargazers_count}</div>
+                      </div>
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </div>
               );

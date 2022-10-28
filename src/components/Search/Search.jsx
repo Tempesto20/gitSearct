@@ -15,8 +15,6 @@ const Search=()=> {
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
 // console.log(searchValue);
 
-const valueT =value.trim();
-
   const clearHandler = () => {
     dispatch(setSearchValue('')); //для отчистки инпута
     setValue('');
@@ -28,6 +26,9 @@ const valueT =value.trim();
     debounce((str) => {
       console.log(str)
       // filter(str => str.trim())
+      // if(str.target.value.filter((value) => value.trim())){
+      //   dispatch(setSearchValue(str));
+      // }
       dispatch(setSearchValue(str));
     }, 500),
     [],
@@ -36,8 +37,15 @@ const valueT =value.trim();
   const inputHandler = (event) => {
     //dispatch(setSearchValue(event.target.value));
     // filter(value => value.trim());
+
     setValue(event.target.value);
     updateSearchValue(event.target.value);
+
+    // if(event.target.value.filter((value) => value.trim())){
+    //   setValue(event.target.value);
+    // updateSearchValue(event.target.value);
+    // }
+
   };
 
   return (
@@ -46,7 +54,7 @@ const valueT =value.trim();
       <input
         ref={inoutRef}
         //value={searchValue} //контролируемый инпут(двойное связывание)
-        value={valueT}
+        value={value}
         onChange={inputHandler}
         className={styles.input}
         placeholder="Поиск аккаунта ..."

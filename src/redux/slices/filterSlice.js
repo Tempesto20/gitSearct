@@ -15,7 +15,7 @@ const filterSlice = createSlice({
       //   state.searchValue = action.payload;
       // }
 
-      // state.searchValue.filter((object) => object.trim());
+      // state.searchValue.trim();
       state.searchValue = action.payload;
     },
   },

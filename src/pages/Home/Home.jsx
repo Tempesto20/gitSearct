@@ -11,12 +11,12 @@ function Home() {
 
   const person = useSelector((state) => state.personSlice.items);
   const status = useSelector((state) => state.personSlice.status);
-  const searchValue = useSelector((state) => state.filterSlice.searchValue).trim();
+  const searchValue = useSelector((state) => state.filterSlice.searchValue);
 
   console.log(person);
   // const data = person.items;
   // console.log(data);
-
+  // .filter(value => value.trim())
   const getCats = async () => {
     const search = searchValue;
     dispatch(

@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/person/:id" element={<FullPerson />} />
-          <Route path="/commits/:id" element={<Commits />} />
+          <Route path="/commits/:name" element={<Commits />} />
         </Routes>
       </div>
       {/* <Bottom /> */}

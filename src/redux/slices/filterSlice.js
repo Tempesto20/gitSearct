@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  searchValue: '',
+  searchValue: 'tempesto20',
 };
 
 const filterSlice = createSlice({

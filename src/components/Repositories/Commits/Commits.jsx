@@ -3,43 +3,69 @@ import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import styles from './commits.module.scss';
-// import { fetchCommit } from '../../../redux/slices/commitSlice';
+import { fetchCommit } from '../../../redux/slices/commitSlice';
 
-function Commits({ login, name }) {
+function Commits({id}) {
   //commits_url : "https://api.github.com/repos/Tempesto20/gitSearct/commits{/sha}"
   // "commits_url": "https://api.github.com/repos/Tempesto20/Cat/commits{/sha}",
   // "git_commits_url": "https://api.github.com/repos/Tempesto20/Cat/git/commits{/sha}",
-  const { id } = useParams();
+  const { name } = useParams();
   const dispatch = useDispatch();
+console.log(name)
 
   const [rep, setRep] = React.useState([]);
 
   const repositories = useSelector((state) => state.repositoriesSlice.items);
-  // const commits = useSelector((state) => state.commitSlice.items);
+  const commits = useSelector((state) => state.commitSlice.items);
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
   // const rep = repositories;
 
-  console.log(repositories);
+  // console.log(repositories);
+  console.log(commits);
   // const ror = repositories.find((obj) => obj.id === id);
   // console.log(ror);
 
-  React.useEffect(() => {
-    // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
-    axios
-      .get(
-        // `https://api.github.com/repos/${login}/${name}/commits`,
-        `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
-        // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
-        // `https://api.github.com/repos/${login}/${name}/commits`
-        // `${commit}`
-      )
-      .then((response) => {
-        // console.log(response.data);
-        setRep(response.data);
-      });
+// for(let i=0; i<repositories.length; i++ ){
+//   // console.log(repositories[i].owner.login)
+//   // console.log(repositories[i].name)
+//   for(let i=0; i<commits.length; i++){
+//     // console.log(commits[i].commit.author.name)
+//   if(repositories[i].owner.login === commits[i].commit.author.name){
+//     // console.log('yes')
+//   }else{
+//     // console.log('no')
+//   //   console.log(repositories[i].owner.login)
+//   // console.log(repositories[i].name)
+//   }
+// }
+// }
 
-    window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
-  }, [login]);
+const getCats = async () => {
+  // fetchCommit(name);
+  dispatch(fetchCommit({ name }));
+};
+
+React.useEffect(() => {
+  getCats();
+}, [name]);
+
+  // React.useEffect(() => {
+  //   // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
+  //   axios
+  //     .get(
+  //       // `https://api.github.com/repos/${login}/${name}/commits`,
+  //       `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+  //       // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+  //       // `https://api.github.com/repos/${login}/${name}/commits`
+  //       // `${commit}`
+  //     )
+  //     .then((response) => {
+  //       // console.log(response.data);
+  //       setRep(response.data);
+  //     });
+
+  //   window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
+  // }, [login]);
 
   return (
     <div className={styles.background}>
@@ -47,7 +73,7 @@ function Commits({ login, name }) {
         <div className={styles.container}>
           <div className={styles.preview}>Commits:</div>
           <div className={styles.content}>
-            {rep.map((item, index) => {
+            {commits.map((item, index) => {
               const date = new Date(item.commit.author.date);
               const data = date.toLocaleDateString();
               return (

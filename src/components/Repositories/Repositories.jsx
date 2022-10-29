@@ -1,30 +1,46 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link ,useParams} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
-// import { fetchCommit } from '../../redux/slices/commitSlice';
+import { fetchCommit } from '../../redux/slices/commitSlice';
 import Commits from './Commits/Commits';
 import book from '../../assets/img/book.png';
 import star from '../../assets/img/starTests.png';
 import styles from './repositories.module.scss';
 import './colorLanguage.scss';
 
-function Repositories({ repos_url, login }) {
+function Repositories({ repos_url, login, name }) {
   const dispatch = useDispatch();
-  //   const { id } = useParams();
+    // const { id } = useParams();
   // const navigate = useNavigate();
 
   //const params = useParams();
-  //console.log(params);
+  // console.log(name);
   const repositories = useSelector((state) => state.repositoriesSlice.items);
   const status = useSelector((state) => state.repositoriesSlice.status);
-  // console.log(repositories);
+  // console.log(repositories.name);
   //   console.log(status);
+
+  // for(let i=0; i<repositories.length; i++ ){
+  //   // console.log(repositories[i].owner.login)
+  //   // console.log(repositories[i].name)
+    
+  //   if(repositories[i].name === id){
+  //     console.log('yes')
+  //   }else{
+  //     console.log('no')
+  //   //   console.log(repositories[i].owner.login)
+  //   // console.log(repositories[i].name)
+  //   }
+  
+  // }
+
+
 
   const getCats = async () => {
     dispatch(fetchRepositories({ login }));
-    // dispatch(fetchCommit({ login }));
+    dispatch(fetchCommit({ login }));
   };
 
   React.useEffect(() => {
@@ -40,12 +56,13 @@ function Repositories({ repos_url, login }) {
             {repositories.map((item) => {
               const ponitLangoage = item.language.toString();
               const count = item.stargazers_count;
+              const name = item.name;
               return (
                 <div className={styles.border} key={item.id}>
                   <div className={styles.title}>
                     <img src={book} alt="" className={styles.book} />
-                    <Link to={`/commits/${item.id}`} key={item.id} className="">
-                      <div className={styles.name}>{item.name}</div>
+                    <Link to={`/commits/${name}`} key={item.id} className="">
+                      <div className={styles.name}>{name}</div>
                     </Link>
                     <div className={styles.visibility}>{item.visibility}</div>
                   </div>

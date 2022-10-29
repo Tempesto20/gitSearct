@@ -7,7 +7,7 @@ export const fetchPerson = createAsyncThunk('person/fetchPersonStatus', async (p
   const { search } = params;
   const { data } = await axios.get(`https://api.github.com/search/users?q=` + search);
   // console.log(data);
-  // console.log(data.items);
+  console.log(data.items);
   // return data;
   return data.items;
 });
@@ -24,6 +24,18 @@ const personSlice = createSlice({
   initialState,
   reducers: {
     setPerson(state, action) {
+      // const findItem = state.items.find((object) => object.id === action.payload.id);
+      // //console.log(findItem.items);
+      // //поиск объекта в массиве
+      // if (findItem) {
+      //   //Если в массиве уже имеется данный объект, то увелись его значение на +1
+
+      //   //console.log(findItem);
+      //   //state.items.push(action.payload);
+      // } else {
+      //   //Если в массиве данного объект не имеется, то будем добавлять
+      //   return;
+      // }
       state.items = action.payload;
     },
   },

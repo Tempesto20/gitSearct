@@ -8,7 +8,7 @@ export const fetchRepositories = createAsyncThunk(
   async (params) => {
     const { login } = params;
     const { data } = await axios.get(`https://api.github.com/users/${login}/repos`);
-    console.log(data);
+    // console.log(data);
     // console.log(data.items);
     // return data;
     return data;

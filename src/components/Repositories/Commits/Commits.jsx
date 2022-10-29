@@ -19,7 +19,9 @@ function Commits({ login, name }) {
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
   // const rep = repositories;
 
-  // console.log(name);
+  console.log(repositories);
+  // const ror = repositories.find((obj) => obj.id === id);
+  // console.log(ror);
 
   React.useEffect(() => {
     // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
@@ -32,7 +34,7 @@ function Commits({ login, name }) {
         // `${commit}`
       )
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setRep(response.data);
       });
 

@@ -42,7 +42,7 @@ console.log(name)
 
 const getCats = async () => {
   // fetchCommit(name);
-  dispatch(fetchCommit({ name }));
+  dispatch(fetchCommit({ name,searchValue }));
 };
 
 React.useEffect(() => {

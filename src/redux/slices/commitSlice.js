@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
 export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (params) => {
-  const { login, name } = params;
+  const { login, name, searchValue } = params;
   const { data } = await axios.get(
     // `https://api.github.com/users/${login}/repos`
     // `https://api.github.com/repos/Tempesto20/${login}/commits`,
@@ -12,7 +12,7 @@ export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (p
     // `https://api.github.com/repos/${login}/${name}/commits`,
     // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
     // `https://api.github.com/repos/${login}/gitSearct/commits`,
-    `https://api.github.com/repos/Tempesto20/${name}/commits`,
+    `https://api.github.com/repos/${searchValue}/${name}/commits`,
   );
   //   console.log(data);
   // console.log(data.items);

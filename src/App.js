@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Commits from './components/Repositories/Commits/Commits';
 import FullPerson from './pages/FullPerson/FullPerson';
 import Home from './pages/Home/Home';
+import NotFound from './pages/Home/NotFound/NotFound';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/person/:id" element={<FullPerson />} />
           <Route path="/commits/:name" element={<Commits />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       {/* <Bottom /> */}

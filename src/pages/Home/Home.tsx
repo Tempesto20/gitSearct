@@ -21,7 +21,6 @@ const Home: React.FC = () => {
   // .filter(value => value.trim())
   const getPerson = async () => {
     const search = searchValue;
-    if (search === '') return;
     dispatch(
       fetchPerson({
         search,

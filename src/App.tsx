@@ -4,7 +4,6 @@ import Header from './components/Header/Header';
 import Commits from './components/Repositories/Commits/Commits';
 import FullPerson from './pages/FullPerson/FullPerson';
 import Home from './pages/Home/Home';
-import NotFound from './pages/Home/NotFound/NotFound';
 
 function App() {
   return (
@@ -16,8 +15,7 @@ function App() {
           <Route path="/person/:id" element={<FullPerson />} />
           <Route path="/commits/:name" element={<Commits author={{
             author: undefined
-          }} commit={''} date={''} name={''} message={''} id={0} />} />
-          <Route path="*" element={<NotFound />} />
+          }} commit={''} date={''} name={''} message={undefined} id={0} />} />
         </Routes>
       </div>
       {/* <Bottom /> */}

@@ -5,13 +5,14 @@ import { fetchPerson } from '../../redux/slices/personSlice';
 import PersonBlock from '../../components/PersonBlock/PersonBlock';
 import styles from './home.module.scss';
 import Skeleton from '../../components/PersonBlock/Skeleton';
+import { RootState, useAppDispatch } from '../../redux/store';
 
-function Home() {
-  const dispatch = useDispatch();
+const Home: React.FC = () => {
+  const dispatch = useAppDispatch();
 
-  const person = useSelector((state) => state.personSlice.items);
-  const status = useSelector((state) => state.personSlice.status);
-  const searchValue = useSelector((state) => state.filterSlice.searchValue);
+  const person = useSelector((state: RootState) => state.personSlice.items);
+  const status = useSelector((state: RootState) => state.personSlice.status);
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
 
   // console.log(person);
   // const data = person.items;
@@ -20,6 +21,7 @@ function Home() {
   // .filter(value => value.trim())
   const getPerson = async () => {
     const search = searchValue;
+    if (search === '') return;
     dispatch(
       fetchPerson({
         search,

@@ -1,10 +1,16 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+export type SearchCommitsParams = {
+  name: string | undefined;
+  searchValue: string;
+};
+
+
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
-export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (params) => {
-  const { name, login, searchValue } = params;
+export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (params:SearchCommitsParams) => {
+  const { name, searchValue } = params;
   const { data } = await axios.get(
     // `https://api.github.com/users/${login}/repos`
     // `https://api.github.com/repos/Tempesto20/${login}/commits`,
@@ -16,12 +22,34 @@ export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (p
   );
   //   console.log(data);
   // return data;
-  return data;
+  return data as CommitsItems[];
 });
+
+export type AuthorProps = {
+  //type - можно передать что угодно, как константа для TS
+  author: any;
+};
+
+export type CommitsItems = {
+  author: AuthorProps;
+  commit: string;
+  date: string;
+  name: string;
+  message: string | any;
+  id: number;
+};
+
+interface CommitsSliceState {
+  items: CommitsItems[];
+  status: 'loading' | 'success' | 'error';
+}
+
+
+
 
 // первоначальное состояние
 //Сохранение пицц в реакте
-const initialState = {
+const initialState: CommitsSliceState = {
   items: [],
   status: 'loading', // loading | success | error
 };

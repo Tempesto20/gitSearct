@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { PersonItems } from '../../redux/slices/personSlice';
 import styles from './personBlock.module.scss';
 
-function PersonBlock({ id, repos_url, login, avatar_url, html_url }) {
+const PersonBlock : React.FC<PersonItems> = ({ id, login, avatar_url })  =>{
   // console.log(repos_url);
   // console.log(repositories);
   return (

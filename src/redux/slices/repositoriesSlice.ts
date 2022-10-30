@@ -1,23 +1,42 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+export type SearchRepositoriesParams = {
+  login: string;
+};
+
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
 export const fetchRepositories = createAsyncThunk(
   'repositories/fetchRepositoriesStatus',
-  async (params) => {
+  async (params: SearchRepositoriesParams) => {
     const { login } = params;
     const { data } = await axios.get(`https://api.github.com/users/${login}/repos`);
     console.log(data);
     // console.log(data.items);
     // return data;
-    return data;
+    return data as RepositoriesItems[];
   },
 );
 
+export type RepositoriesItems = {
+  name: string;
+  language: string;
+  visibility: string;
+  id: number;
+  stargazers_count: number;
+  repos_url: string;
+  login: string;
+};
+
+interface RepositoriesSliceState {
+  items: RepositoriesItems[];
+  status: 'loading' | 'success' | 'error';
+}
+
 // первоначальное состояние
 //Сохранение пицц в реакте
-const initialState = {
+const initialState: RepositoriesSliceState = {
   items: [],
   status: 'loading', // loading | success | error
 };

@@ -7,7 +7,7 @@ import Search from '../Search/Search';
 import git from '../../assets/img/git.png';
 import styles from './header.module.scss';
 
-function Header() {
+const Header: React.FC = () => {
   const location = useLocation();
 
   return (

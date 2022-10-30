@@ -2,21 +2,22 @@ import React from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
+import { fetchRepositories, RepositoriesItems } from '../../redux/slices/repositoriesSlice';
 import book from '../../assets/img/book.png';
 import star from '../../assets/img/starTests.png';
 import styles from './repositories.module.scss';
 import './colorLanguage.scss';
+import { RootState, useAppDispatch } from '../../redux/store';
 
-function Repositories({ repos_url, login, name }) {
-  const dispatch = useDispatch();
+const Repositories : React.FC<RepositoriesItems> = ({ login })  => {
+  const dispatch = useAppDispatch();
   const { id } = useParams();
 
   // const navigate = useNavigate();
   // console.log(name);
 
-  const repositories = useSelector((state) => state.repositoriesSlice.items);
-  const status = useSelector((state) => state.repositoriesSlice.status);
+  const repositories = useSelector((state: RootState) => state.repositoriesSlice.items);
+  const status = useSelector((state: RootState) => state.repositoriesSlice.status);
   // console.log(status);
   // console.log(repositories);
 

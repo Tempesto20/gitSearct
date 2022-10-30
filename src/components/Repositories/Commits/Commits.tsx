@@ -3,19 +3,20 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import styles from './commits.module.scss';
-import { fetchCommit } from '../../../redux/slices/commitSlice';
+import { CommitsItems, fetchCommit } from '../../../redux/slices/commitSlice';
+import { RootState, useAppDispatch } from '../../../redux/store';
 
-function Commits({ id }) {
+const Commits : React.FC<CommitsItems> = ({ id })  =>{
   const { name } = useParams();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   // console.log(login);
 
-  const repositories = useSelector((state) => state.repositoriesSlice.items);
-  const commits = useSelector((state) => state.commitSlice.items);
-  const searchValue = useSelector((state) => state.filterSlice.searchValue);
+  const repositories = useSelector((state: RootState) => state.repositoriesSlice.items);
+  const commits = useSelector((state: RootState) => state.commitSlice.items);
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
 
   // console.log(repositories);
-  // console.log(commits);
+  console.log(commits);
 
   const getCommits = async () => {
     dispatch(fetchCommit({ name, searchValue }));
@@ -32,18 +33,23 @@ function Commits({ id }) {
           <div className={styles.preview}>Repositories: { name }</div>
           <div className={styles.content}>
             {commits.map((item, index) => {
+              // @ts-ignore
               const date = new Date(item.commit.author.date);
               const data = date.toLocaleDateString();
+              // @ts-ignore
+              const name = item.commit.author.name;
+              // @ts-ignore
+              const message = item.commit.message;
               return (
                 <div className={styles.border} key={index}>
                   <div className={styles.title}>
                     <div className={styles.name}>
                       <p>Автор: </p>
-                      {item.commit.author.name}
+                      {name}
                     </div>
                     <div className={styles.message}>
                       <p>Комментарий:</p>
-                      {item.commit.message}
+                      {message}
                     </div>
                     <div className={styles.date}>
                       <p>Дата:</p>

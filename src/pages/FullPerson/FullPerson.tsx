@@ -3,19 +3,20 @@ import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import styles from './fullPerson.module.scss';
 import Repositories from '../../components/Repositories/Repositories';
+import { RootState, useAppDispatch } from '../../redux/store';
 
 // Детальный данный по котику по id
 
-const FullCat = () => {
-  const dispatch = useDispatch();
+const FullCat: React.FC = () =>{
+  const dispatch = useAppDispatch();
   const { id } = useParams();
 
   // const navigate = useNavigate();
   //console.log(params);
 
-  const searchValue = useSelector((state) => state.filterSlice.searchValue);
-  const person = useSelector((state) => state.personSlice.items);
-  const status = useSelector((state) => state.personSlice.status);
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
+  const person = useSelector((state: RootState) => state.personSlice.items);
+  const status = useSelector((state: RootState) => state.personSlice.status);
   // console.log(person);
   // console.log(status);
 
@@ -41,7 +42,7 @@ const FullCat = () => {
             })}
             <div className={styles.repositories}>
               {person.map((item) => (
-                <Repositories key={item.id} {...item} />
+                <Repositories name={''} language={''} visibility={''} stargazers_count={0} key={item.id} {...item} />
               ))}
             </div>
           </div>

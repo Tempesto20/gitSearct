@@ -5,25 +5,28 @@ import { setSearchValue } from '../../redux/slices/filterSlice';
 import search from '../../assets/img/search.png';
 import clear from '../../assets/img/clear.png';
 import styles from './Search.module.scss';
+import { RootState, useAppDispatch } from '../../redux/store';
 
 //debounce - отложенный поиск, запрос на бэк для получения пицц
 
-const Search=()=> {
+const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = React.useState('');
-  const inoutRef = React.useRef(null);
-  const searchValue = useSelector((state) => state.filterSlice.searchValue);
+  const [value, setValue] = React.useState<string>('');
+  const inoutRef = React.useRef<HTMLInputElement>(null);
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
 // console.log(searchValue);
 
   const clearHandler = () => {
     dispatch(setSearchValue('')); //для отчистки инпута
     setValue('');
+    
+    
     inoutRef.current?.focus(); //Альтернативный вариант записи
     // если что-то имеется в current, тогда вызови focus
   };
 
   const updateSearchValue = React.useCallback(
-    debounce((str) => {
+    debounce((str: string) => {
       console.log(str)
       // filter(str => str.trim())
       // if(str.target.value.filter((value) => value.trim())){
@@ -34,7 +37,7 @@ const Search=()=> {
     [],
   );
 
-  const inputHandler = (event) => {
+  const inputHandler = (event: React.ChangeEvent <HTMLInputElement>) => {
     //dispatch(setSearchValue(event.target.value));
     // filter(value => value.trim());
 

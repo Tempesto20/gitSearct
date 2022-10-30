@@ -20,6 +20,8 @@ function Home() {
   // .filter(value => value.trim())
   const getPerson = async () => {
     const search = searchValue;
+    if (search === '') return;
+    //фикс 422 - отмена поиска при пустом значении
     dispatch(
       fetchPerson({
         search,

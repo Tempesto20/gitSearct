@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Link ,useParams} from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
 import { fetchCommit } from '../../redux/slices/commitSlice';
@@ -12,39 +12,23 @@ import './colorLanguage.scss';
 
 function Repositories({ repos_url, login, name }) {
   const dispatch = useDispatch();
-    // const { id } = useParams();
-  // const navigate = useNavigate();
+  const { id } = useParams();
 
-  //const params = useParams();
+  // const navigate = useNavigate();
   // console.log(name);
+
   const repositories = useSelector((state) => state.repositoriesSlice.items);
   const status = useSelector((state) => state.repositoriesSlice.status);
-  // console.log(repositories.name);
-  //   console.log(status);
+  // console.log(status);
+  // console.log(repositories);
 
-  // for(let i=0; i<repositories.length; i++ ){
-  //   // console.log(repositories[i].owner.login)
-  //   // console.log(repositories[i].name)
-    
-  //   if(repositories[i].name === id){
-  //     console.log('yes')
-  //   }else{
-  //     console.log('no')
-  //   //   console.log(repositories[i].owner.login)
-  //   // console.log(repositories[i].name)
-  //   }
-  
-  // }
-
-
-
-  const getCats = async () => {
+  const getRepositories = async () => {
     dispatch(fetchRepositories({ login }));
     dispatch(fetchCommit({ login }));
   };
 
   React.useEffect(() => {
-    getCats();
+    getRepositories();
   }, [login]);
 
   return (
@@ -84,11 +68,6 @@ function Repositories({ repos_url, login, name }) {
               );
             })}
           </div>
-          {/* <div className="">
-              {
-          repositories.map((item)=><Commits  key={item.id} {...item} />)
- }
-            </div> */}
         </div>
       </div>
     </div>
@@ -128,3 +107,17 @@ export default Repositories;
 {
   /* <div className="">{item.size}</div> */
 }
+
+// for(let i=0; i<repositories.length; i++ ){
+//   // console.log(repositories[i].owner.login)
+//   // console.log(repositories[i].name)
+
+//   if(repositories[i].name === id){
+//     console.log('yes')
+//   }else{
+//     console.log('no')
+//   //   console.log(repositories[i].owner.login)
+//   // console.log(repositories[i].name)
+//   }
+
+// }

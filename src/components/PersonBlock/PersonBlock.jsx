@@ -1,25 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Repositories from '../Repositories/Repositories';
 import styles from './personBlock.module.scss';
 
 function PersonBlock({ id, repos_url, login, avatar_url, html_url }) {
   // console.log(repos_url);
-  // const repositories = repos_url;
   // console.log(repositories);
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.avatar}>
-          <Link to={`/person/${id}`} key={id} >
-            <img src={avatar_url} alt="" className={styles.img} />
+            <Link to={`/person/${id}`} key={id}>
+              <img src={avatar_url} alt="" className={styles.img} />
             </Link>
           </div>
           <div className={styles.title}>
             <div className={styles.login}>{login}</div>
           </div>
-          {/* <a href={html_url} target="_blanc" className="">Сылка на страницу</a> */}
 
           <Link to={`/person/${id}`} key={id} className={styles.link}>
             <div className={styles.subtitle}>Перейти на страницу</div>

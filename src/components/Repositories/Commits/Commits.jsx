@@ -1,71 +1,29 @@
 import React from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import styles from './commits.module.scss';
 import { fetchCommit } from '../../../redux/slices/commitSlice';
 
-function Commits({id}) {
-  //commits_url : "https://api.github.com/repos/Tempesto20/gitSearct/commits{/sha}"
-  // "commits_url": "https://api.github.com/repos/Tempesto20/Cat/commits{/sha}",
-  // "git_commits_url": "https://api.github.com/repos/Tempesto20/Cat/git/commits{/sha}",
+function Commits({ id }) {
   const { name } = useParams();
   const dispatch = useDispatch();
-console.log(name)
-
-  const [rep, setRep] = React.useState([]);
+  // console.log(name);
 
   const repositories = useSelector((state) => state.repositoriesSlice.items);
   const commits = useSelector((state) => state.commitSlice.items);
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
-  // const rep = repositories;
 
   // console.log(repositories);
-  console.log(commits);
-  // const ror = repositories.find((obj) => obj.id === id);
-  // console.log(ror);
+  // console.log(commits);
 
-// for(let i=0; i<repositories.length; i++ ){
-//   // console.log(repositories[i].owner.login)
-//   // console.log(repositories[i].name)
-//   for(let i=0; i<commits.length; i++){
-//     // console.log(commits[i].commit.author.name)
-//   if(repositories[i].owner.login === commits[i].commit.author.name){
-//     // console.log('yes')
-//   }else{
-//     // console.log('no')
-//   //   console.log(repositories[i].owner.login)
-//   // console.log(repositories[i].name)
-//   }
-// }
-// }
+  const getCommits = async () => {
+    dispatch(fetchCommit({ name, searchValue }));
+  };
 
-const getCats = async () => {
-  // fetchCommit(name);
-  dispatch(fetchCommit({ name,searchValue }));
-};
-
-React.useEffect(() => {
-  getCats();
-}, [name]);
-
-  // React.useEffect(() => {
-  //   // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
-  //   axios
-  //     .get(
-  //       // `https://api.github.com/repos/${login}/${name}/commits`,
-  //       `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
-  //       // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
-  //       // `https://api.github.com/repos/${login}/${name}/commits`
-  //       // `${commit}`
-  //     )
-  //     .then((response) => {
-  //       // console.log(response.data);
-  //       setRep(response.data);
-  //     });
-
-  //   window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
-  // }, [login]);
+  React.useEffect(() => {
+    getCommits();
+  }, [name, searchValue]);
 
   return (
     <div className={styles.background}>
@@ -115,6 +73,45 @@ React.useEffect(() => {
 }
 
 export default Commits;
+
+//commits_url : "https://api.github.com/repos/Tempesto20/gitSearct/commits{/sha}"
+// "commits_url": "https://api.github.com/repos/Tempesto20/Cat/commits{/sha}",
+// "git_commits_url": "https://api.github.com/repos/Tempesto20/Cat/git/commits{/sha}",
+
+// const [rep, setRep] = React.useState([]);
+
+// for(let i=0; i<repositories.length; i++ ){
+//   // console.log(repositories[i].owner.login)
+//   // console.log(repositories[i].name)
+//   for(let i=0; i<commits.length; i++){
+//     // console.log(commits[i].commit.author.name)
+//   if(repositories[i].owner.login === commits[i].commit.author.name){
+//     // console.log('yes')
+//   }else{
+//     // console.log('no')
+//   //   console.log(repositories[i].owner.login)
+//   // console.log(repositories[i].name)
+//   }
+// }
+// }
+
+// React.useEffect(() => {
+//   // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
+//   axios
+//     .get(
+//       `https://api.github.com/repos/${searchValue}/${name}/commits`,
+//       // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+//       // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+//       // `https://api.github.com/repos/${login}/${name}/commits`
+//       // `${commit}`
+//     )
+//     .then((response) => {
+//       // console.log(response.data);
+//       setRep(response.data);
+//     });
+
+//   window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
+// }, [name,searchValue]);
 
 //   for (let i = 0; i < repositories.length; i++) {
 //     console.log(repositories[i].name);
@@ -172,3 +169,21 @@ export default Commits;
 //       </div>
 //     );
 //   })}
+
+// React.useEffect(() => {
+//   // const search = searchValue ? `&search=${searchValue}` : 'Tempesto_S'; //поиск
+//   axios
+//     .get(
+//       // `https://api.github.com/repos/${login}/${name}/commits`,
+//       `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+//       // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+//       // `https://api.github.com/repos/${login}/${name}/commits`
+//       // `${commit}`
+//     )
+//     .then((response) => {
+//       // console.log(response.data);
+//       setRep(response.data);
+//     });
+
+//   window.scrollTo(0, 0); //для прокрутки в самый верх домашней страницы
+// }, [login]);

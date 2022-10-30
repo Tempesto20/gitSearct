@@ -16,8 +16,9 @@ function Home() {
   // console.log(person);
   // const data = person.items;
   // console.log(data);
+
   // .filter(value => value.trim())
-  const getCats = async () => {
+  const getPerson = async () => {
     const search = searchValue;
     dispatch(
       fetchPerson({
@@ -27,10 +28,8 @@ function Home() {
   };
 
   React.useEffect(() => {
-    getCats();
+    getPerson();
   }, [searchValue]);
-
-  // const personArray = person.map((item) => <PersonBlock key={item.id} {...item} />);
 
   const personArray = person.map((item) => <PersonBlock key={item.id} {...item} />);
 
@@ -39,9 +38,10 @@ function Home() {
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
-      <div className={styles.title}>В данном разделе представлены подходящие аккаунты по запросу</div>
+        <div className={styles.title}>
+          В данном разделе представлены подходящие аккаунты по запросу
+        </div>
         <div className={styles.container}>
-          
           <div className={styles.content}>
             {/* {person.map((item) => (
               <PersonBlock key={item.id} {...item} />

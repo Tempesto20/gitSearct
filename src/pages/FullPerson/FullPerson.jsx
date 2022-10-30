@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import axios from 'axios';
-import { fetchPerson } from '../../redux/slices/personSlice';
 import styles from './fullPerson.module.scss';
 import Repositories from '../../components/Repositories/Repositories';
 
@@ -11,13 +9,11 @@ import Repositories from '../../components/Repositories/Repositories';
 const FullCat = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  // const navigate = useNavigate();
 
-  //const params = useParams();
+  // const navigate = useNavigate();
   //console.log(params);
 
   const searchValue = useSelector((state) => state.filterSlice.searchValue);
-
   const person = useSelector((state) => state.personSlice.items);
   const status = useSelector((state) => state.personSlice.status);
   // console.log(person);
@@ -26,32 +22,33 @@ const FullCat = () => {
   // const repositories = person.repos_url;
   // console.log("person" + " " + person)
   // console.log("repositories" + " " + repositories)
+
   return (
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.preview}>Данные пользователя</div>
           <div className={styles.content}>
-          {person.map((item, index) => {
-            return (
-              <div className="" key={item.id}>
-                <div className="">
-                  <img src={item.avatar_url} alt="" className={styles.img}/>
+            {person.map((item, index) => {
+              return (
+                <div className="" key={item.id}>
+                  <div className="">
+                    <img src={item.avatar_url} alt="" className={styles.img} />
+                  </div>
+                  <div className={styles.login}>{item.login}</div>
                 </div>
-                <div className={styles.login}>{item.login}</div>
-              </div>
-            );
-          })}
-          <div className="">
-            {person.map((item) => (
-              <Repositories key={item.id} {...item} />
-            ))}
+              );
+            })}
+            <div className="">
+              {person.map((item) => (
+                <Repositories key={item.id} {...item} />
+              ))}
+            </div>
           </div>
-        </div>
         </div>
         <div className="">
           <Link to="/" className={styles.link}>
-          <div className={styles.subtitle}>Вернуться на главную</div>
+            <div className={styles.subtitle}>Вернуться на главную</div>
           </Link>
         </div>
       </div>

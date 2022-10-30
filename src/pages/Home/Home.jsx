@@ -33,7 +33,7 @@ function Home() {
 
   const personArray = person.map((item) => <PersonBlock key={item.id} {...item} />);
 
-  const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
+  const skeletons = [...new Array(1)].map((_, index) => <Skeleton key={index} />);
 
   return (
     <div className={styles.background}>

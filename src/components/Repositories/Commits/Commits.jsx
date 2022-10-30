@@ -8,7 +8,7 @@ import { fetchCommit } from '../../../redux/slices/commitSlice';
 function Commits({ id }) {
   const { name } = useParams();
   const dispatch = useDispatch();
-  // console.log(name);
+  // console.log(login);
 
   const repositories = useSelector((state) => state.repositoriesSlice.items);
   const commits = useSelector((state) => state.commitSlice.items);
@@ -29,7 +29,7 @@ function Commits({ id }) {
     <div className={styles.background}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <div className={styles.preview}>Commits:</div>
+          <div className={styles.preview}>Repositories: { name }</div>
           <div className={styles.content}>
             {commits.map((item, index) => {
               const date = new Date(item.commit.author.date);

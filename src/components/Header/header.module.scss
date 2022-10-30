@@ -1,3 +1,5 @@
+@import '../../scss/config';
+
 .background{
 background-color: #24292f;
 }
@@ -8,19 +10,22 @@ background-color: #24292f;
 .container{
     padding: 20px 20px;
     display: flex;
+    @media (max-width: $md) {
+        display: block;
+      }
 }
 .logo{
     position: relative;
-    display: flex;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 100px;
+    @media (max-width: $md) {
+        padding-left: 20px;
+        padding-bottom: 0px;
+      }
 }
-.logo:hover{
 
-}
 .img{
-
     width: 160px;
 }
 .img:hover{
@@ -32,6 +37,9 @@ background-color: #24292f;
     display: block;
     padding-top: 20px;
     padding-left: 100px;
+    @media (max-width: $md) {
+        padding-left: 20px;
+      }
 }
 .title{
 color: white;
@@ -40,4 +48,7 @@ font-size: 24px;
 }
 .search{
     padding-top: 50px;
+    @media (max-width: $md) {
+        padding-bottom: 40px;
+      }
 }

@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchRepositories } from '../../redux/slices/repositoriesSlice';
-import { fetchCommit } from '../../redux/slices/commitSlice';
-import Commits from './Commits/Commits';
 import book from '../../assets/img/book.png';
 import star from '../../assets/img/starTests.png';
 import styles from './repositories.module.scss';
@@ -24,7 +22,6 @@ function Repositories({ repos_url, login, name }) {
 
   const getRepositories = async () => {
     dispatch(fetchRepositories({ login }));
-    dispatch(fetchCommit({ login }));
   };
 
   React.useEffect(() => {

@@ -8,21 +8,24 @@
 }
 .container {
   padding: 20px 20px;
+  @media (max-width: $ssm) {
+    padding: 10px 10px;
+  }
 }
 .content {
 }
 
 .img{
  width: 400px;
+ @media (max-width: $sm) {
+  width: 300px;
+}
+@media (max-width: $ssm) {
+  width: 250px;
+}
 }
 
 .title {
-  // text-align: center;
-  // color: rgb(0, 0, 0);
-  // font-weight: bold;
-  // font-size: 24px;
-  // padding-top: 40px;
-  // padding-bottom: 40px;
 }
 
 .login{

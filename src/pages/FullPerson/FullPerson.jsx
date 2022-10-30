@@ -39,7 +39,7 @@ const FullCat = () => {
                 </div>
               );
             })}
-            <div className="">
+            <div className={styles.repositories}>
               {person.map((item) => (
                 <Repositories key={item.id} {...item} />
               ))}

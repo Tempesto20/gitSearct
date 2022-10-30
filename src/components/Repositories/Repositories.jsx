@@ -38,7 +38,8 @@ function Repositories({ repos_url, login, name }) {
           <div className={styles.preview}>Repositories</div>
           <div className={styles.content}>
             {repositories.map((item) => {
-              const ponitLangoage = item.language.toString();
+              // const ponitLangoage = item.language.toString();
+              const ponitLangoage = item.language;
               const count = item.stargazers_count;
               const name = item.name;
               return (

@@ -1,53 +1,79 @@
 .SCSS {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #C6538C;
-  }
+  font-size: 50px;
+  font-weight: 800;
+  color: #c6538c;
+}
 
+.HTML {
+  font-size: 50px;
+  font-weight: 800;
+  color: #e34c26;
+}
+.JavaScript {
+  font-size: 50px;
+  font-weight: 800;
+  color: #f1e05a;
+}
+.TypeScript {
+  font-size: 50px;
+  font-weight: 800;
+  color: #3178c6;
+}
 
-  .HTML {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #E34C26;
-  }
-  .JavaScript {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #F1E05A;
-  }
-  .TypeScript {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #3178C6;
-  }
-  
-  .Go {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #0055b0;
-  }
-  .C{
-    font-size: 50px;
-    font-weight: 800;      
-    color: #fb0000;
-  }
-  .C {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #3178C6;
-  }
-  .PHP {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #b60ef3;
-  }
-  .Laravel {
-    font-size: 50px;
-    font-weight: 800;      
-    color: #ab0050;
-  }
+.Go {
+  font-size: 50px;
+  font-weight: 800;
+  color: #0055b0;
+}
+.C {
+  font-size: 50px;
+  font-weight: 800;
+  color: #fb0000;
+}
+.Ruby{
+  font-size: 50px;
+  font-weight: 800;
+  color: #79cdfe;
+}
+.Swift{
+  font-size: 50px;
+  font-weight: 800;
+  color: #0e4d0e;
+}
+.PHP {
+  font-size: 50px;
+  font-weight: 800;
+  color: #b60ef3;
+}
+.Objective-C {
+  font-size: 50px;
+  font-weight: 800;
+  color: #b276c8;
+}
+
+.Laravel {
+  font-size: 50px;
+  font-weight: 800;
+  color: #ab0050;
+}
 .Dockerfile {
   font-size: 50px;
-  font-weight: 800;      
+  font-weight: 800;
   color: #0a0a0a;
+}
+
+.Python {
+  font-size: 50px;
+  font-weight: 800;
+  color: #918282;
+}
+.CSS {
+  font-size: 50px;
+  font-weight: 800;
+  color: #658ce1;
+}
+.Java {
+  font-size: 50px;
+  font-weight: 800;
+  color: #78e365;
 }

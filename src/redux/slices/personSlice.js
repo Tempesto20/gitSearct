@@ -7,9 +7,10 @@ export const fetchPerson = createAsyncThunk('person/fetchPersonStatus', async (p
   const { search } = params;
   const { data } = await axios.get(`https://api.github.com/search/users?q=` + search);
   // console.log(data);
-  console.log(data.items);
+  // console.log(data.items);
   // return data;
-  return data.items;
+  // return data.items;
+  return data.items.slice(0, 1);
 });
 
 // первоначальное состояние

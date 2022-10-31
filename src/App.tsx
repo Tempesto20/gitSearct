@@ -13,9 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/person/:id" element={<FullPerson />} />
-          <Route path="/commits/:name" element={<Commits author={{
-            author: undefined
-          }} commit={''} date={''} name={''} message={undefined} id={0} />} />
+          <Route path="/commits/:name" element={<Commits commit={''} date={''} name={''} message={undefined} id={0} author={[]} />} />
         </Routes>
       </div>
       {/* <Bottom /> */}

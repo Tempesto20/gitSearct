@@ -42,6 +42,9 @@
   margin-right: 20px;
   margin-bottom: 20px;
   width: 330px;
+  @media (max-width: $ssm) {
+    width: 250px;
+  }
 }
 .title {
   display: flex;

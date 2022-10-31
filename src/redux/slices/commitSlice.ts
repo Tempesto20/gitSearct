@@ -25,17 +25,22 @@ export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (p
   return data as CommitsItems[];
 });
 
+export type CommitProps = {
+  //type - можно передать что угодно, как константа для TS
+  commit: string[];
+};
+
 export type AuthorProps = {
   //type - можно передать что угодно, как константа для TS
-  author: any;
+  author: string[];
 };
 
 export type CommitsItems = {
-  author: AuthorProps;
+  author: AuthorProps[];
   commit: string;
   date: string;
   name: string;
-  message: string | any;
+  message: string | any | null | undefined;
   id: number;
 };
 

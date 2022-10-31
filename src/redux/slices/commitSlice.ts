@@ -6,41 +6,39 @@ export type SearchCommitsParams = {
   searchValue: string;
 };
 
-
 // Это бизнес-логика, вынес из UI - в редакс, те це UX
 //Чтобы была возможно повторного использования или исключения
-export const fetchCommit = createAsyncThunk('commit/fetchCommitStatus', async (params:SearchCommitsParams) => {
-  const { name, searchValue } = params;
-  const { data } = await axios.get(
-    // `https://api.github.com/users/${login}/repos`
-    // `https://api.github.com/repos/Tempesto20/${login}/commits`,
-    // `https://api.github.com/repos/${login}/gitSearct/commits`,
-    // `https://api.github.com/repos/${login}/${name}/commits`,
-    // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
-    // `https://api.github.com/repos/${login}/gitSearct/commits`,
-    `https://api.github.com/repos/${searchValue}/${name}/commits`,
-  );
-  //   console.log(data);
-  // return data;
-  return data as CommitsItems[];
-});
+export const fetchCommit = createAsyncThunk(
+  'commit/fetchCommitStatus',
+  async (params: SearchCommitsParams) => {
+    const { name, searchValue } = params;
+    const { data } = await axios.get(
+      // `https://api.github.com/users/${login}/repos`
+      // `https://api.github.com/repos/Tempesto20/${login}/commits`,
+      // `https://api.github.com/repos/${login}/gitSearct/commits`,
+      // `https://api.github.com/repos/${login}/${name}/commits`,
+      // `https://api.github.com/repos/Tempesto20/gitSearct/commits`,
+      // `https://api.github.com/repos/${login}/gitSearct/commits`,
+      `https://api.github.com/repos/${searchValue}/${name}/commits`,
+    );
+    //   console.log(data);
+    // return data;
+    return data as CommitsItems[];
+  },
+);
 
 export type CommitProps = {
   //type - можно передать что угодно, как константа для TS
-  commit: string[];
-};
-
-export type AuthorProps = {
-  //type - можно передать что угодно, как константа для TS
-  author: string[];
+  author: {
+    name: string;
+    email: string;
+    date: string;
+  };
+  message: string;
 };
 
 export type CommitsItems = {
-  author: AuthorProps[];
-  commit: string;
-  date: string;
-  name: string;
-  message: string | any | null | undefined;
+  commit: CommitProps;
   id: number;
 };
 
@@ -48,9 +46,6 @@ interface CommitsSliceState {
   items: CommitsItems[];
   status: 'loading' | 'success' | 'error';
 }
-
-
-
 
 // первоначальное состояние
 //Сохранение пицц в реакте

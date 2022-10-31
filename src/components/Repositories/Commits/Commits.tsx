@@ -32,13 +32,14 @@ const Commits : React.FC<CommitsItems> = ({ id })  =>{
         <div className={styles.container}>
           <div className={styles.preview}>Repositories: { name }</div>
           <div className={styles.content}>
+            {/* // @ts-ignore */}
             {commits.map((item, index) => {
-              // @ts-ignore
+              
               const date = new Date(item.commit.author.date);
               const data = date.toLocaleDateString();
-              // @ts-ignore
+              
               const name = item.commit.author.name;
-              // @ts-ignore
+
               const message = item.commit.message;
               return (
                 <div className={styles.border} key={index}>

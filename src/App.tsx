@@ -13,7 +13,22 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/person/:id" element={<FullPerson />} />
-          <Route path="/commits/:name" element={<Commits commit={''} date={''} name={''} message={undefined} id={0} author={[]} />} />
+          <Route
+            path="/commits/:name"
+            element={
+              <Commits
+                id={0}
+                commit={{
+                  author: {
+                    name: '',
+                    email: '',
+                    date: '',
+                  },
+                  message: '',
+                }}
+              />
+            }
+          />
         </Routes>
       </div>
       {/* <Bottom /> */}

@@ -1,6 +1,6 @@
 import React from 'react';
 // import axios from 'axios';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import styles from './commits.module.scss';
 import { CommitsItems, fetchCommit } from '../../../redux/slices/commitSlice';
@@ -11,12 +11,12 @@ const Commits : React.FC<CommitsItems> = ({ id })  =>{
   const dispatch = useAppDispatch();
   // console.log(login);
 
-  const repositories = useSelector((state: RootState) => state.repositoriesSlice.items);
+  // const repositories = useSelector((state: RootState) => state.repositoriesSlice.items);
   const commits = useSelector((state: RootState) => state.commitSlice.items);
   const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
 
   // console.log(repositories);
-  console.log(commits);
+  // console.log(commits);
 
   const getCommits = async () => {
     dispatch(fetchCommit({ name, searchValue }));

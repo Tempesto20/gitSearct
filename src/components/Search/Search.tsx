@@ -13,12 +13,12 @@ const Search: React.FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = React.useState<string>('');
   const inoutRef = React.useRef<HTMLInputElement>(null);
-  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue).trim();
 // console.log(searchValue);
 
   const clearHandler = () => {
-    dispatch(setSearchValue('')); //для отчистки инпута
-    setValue('');
+    dispatch(setSearchValue(''.trim())); //для отчистки инпута
+    setValue(''.trim());
     
     
     inoutRef.current?.focus(); //Альтернативный вариант записи
@@ -32,7 +32,7 @@ const Search: React.FC = () => {
       // if(str.target.value.filter((value) => value.trim())){
       //   dispatch(setSearchValue(str));
       // }
-      dispatch(setSearchValue(str));
+      dispatch(setSearchValue(str.trim()));
     }, 500),
     [],
   );
@@ -41,8 +41,8 @@ const Search: React.FC = () => {
     //dispatch(setSearchValue(event.target.value));
     // filter(value => value.trim());
 
-    setValue(event.target.value);
-    updateSearchValue(event.target.value);
+    setValue(event.target.value.trim());
+    updateSearchValue(event.target.value.trim());
 
     // if(event.target.value.filter((value) => value.trim())){
     //   setValue(event.target.value);

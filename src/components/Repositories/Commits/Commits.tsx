@@ -5,6 +5,7 @@ import { Link, useParams } from 'react-router-dom';
 import styles from './commits.module.scss';
 import { CommitsItems, fetchCommit } from '../../../redux/slices/commitSlice';
 import { RootState, useAppDispatch } from '../../../redux/store';
+import moment from 'moment';
 
 const Commits : React.FC<CommitsItems> = ({ id })  =>{
   const { name } = useParams();
@@ -36,11 +37,11 @@ const Commits : React.FC<CommitsItems> = ({ id })  =>{
             {commits.map((item, index) => {
               
               const date = new Date(item.commit.author.date);
-              const data = date.toLocaleDateString();
-              
+              // const data = date.toLocaleDateString();
+              const data = moment(date).format('YYYY-MM-DD');
               const name = item.commit.author.name;
-
               const message = item.commit.message;
+              
               return (
                 <div className={styles.border} key={index}>
                   <div className={styles.title}>

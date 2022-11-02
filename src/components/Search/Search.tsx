@@ -13,7 +13,7 @@ const Search: React.FC = () => {
   const dispatch = useDispatch();
   const [value, setValue] = React.useState<string>('');
   const inoutRef = React.useRef<HTMLInputElement>(null);
-  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue).trim();
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
 // console.log(searchValue);
 
   const clearHandler = () => {

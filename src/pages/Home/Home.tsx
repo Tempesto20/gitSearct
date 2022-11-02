@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
   // .filter(value => value.trim())
   const getPerson = async () => {
-    const search = searchValue;
+    const search = searchValue.trim();
     if (search === '') return;
     dispatch(
       fetchPerson({

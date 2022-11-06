@@ -12,7 +12,7 @@ const Home: React.FC = () => {
 
   const person = useSelector((state: RootState) => state.personSlice.items);
   const status = useSelector((state: RootState) => state.personSlice.status);
-  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue);
+  const searchValue = useSelector((state: RootState) => state.filterSlice.searchValue).trim();
 
   // console.log(person);
   // const data = person.items;
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
 
   // .filter(value => value.trim())
   const getPerson = async () => {
-    const search = searchValue.trim();
+    const search = searchValue;
     if (search === '') return;
     dispatch(
       fetchPerson({
@@ -45,10 +45,7 @@ const Home: React.FC = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.content}>
-            {/* {person.map((item) => (
-              <PersonBlock key={item.id} {...item} />
-            ))} */}
-            {status !== 'success' ? skeletons : personArray}
+            {searchValue === '' ? skeletons : personArray}
           </div>
           <div className="content__items"></div>
         </div>

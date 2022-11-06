@@ -24,13 +24,13 @@
   @media (max-width: $md) {
     width: 220px;
   }
-  &:focus {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    width: 400px;
-    @media (max-width: $md) {
-      width: 260px;
-    }
-  }
+  // &:focus {
+  //   border: 1px solid rgba(0, 0, 0, 0.2);
+  //   width: 400px;
+  //   @media (max-width: $md) {
+  //     width: 260px;
+  //   }
+  // }
 }
 
 .clearIcon {
@@ -43,7 +43,7 @@
   top: 14px;
   cursor: pointer; //изменение вида курсора
   @media (max-width: $md) {
-    left: 200px;
+    left: 190px;
     top: 16px;
   }
   &:hover {
